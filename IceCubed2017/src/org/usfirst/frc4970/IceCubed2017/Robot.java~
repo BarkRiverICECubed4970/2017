@@ -52,22 +52,18 @@ public class Robot extends IterativeRobot {
         //(which it very likely will), subsystems are not guaranteed to be
         // constructed yet. Thus, their requires() statements may grab null
         // pointers. Bad news. Don't move it.
-        double timedDriveLeft;
-        double timedDriveRight;
         double driveTowardTowerLeft;
         double driveTowardTowerRight;
         int timedDriveTimeout;
         
         prefs = Preferences.getInstance();
         
-        timedDriveLeft = prefs.getDouble("Timed Drive Left", 0.5);
-        timedDriveRight = prefs.getDouble("Timed Drive Right", -0.5);
         driveTowardTowerLeft = prefs.getDouble("Drive Towards Tower Left", 0.25);
         driveTowardTowerRight = prefs.getDouble("Drive Towards Tower Right", -0.25);
         timedDriveTimeout = prefs.getInt("Timed Drive Timeout", 4);
         
-        oi = new OI(timedDriveLeft,timedDriveRight,
-        		    driveTowardTowerLeft, driveTowardTowerRight,
+        
+        oi = new OI(driveTowardTowerLeft, driveTowardTowerRight,
         		    timedDriveTimeout);
 
         // instantiate the command used for the autonomous period
