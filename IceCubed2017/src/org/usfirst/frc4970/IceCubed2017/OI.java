@@ -65,7 +65,7 @@ public class OI {
         joystick2 = new Joystick(1);
         
         joystickButton1 = new JoystickButton(joystick2, 1);
-        joystickButton1.whileHeld(new DriveTowardTower(0.25, -0.25));
+        joystickButton1.whileHeld(new DriveTowardTower(-0.25, 0.25));
         joystick1 = new Joystick(0);
         
 
@@ -73,8 +73,8 @@ public class OI {
         // SmartDashboard Buttons
         SmartDashboard.putData("PlaceGear", new PlaceGear());
         SmartDashboard.putData("DriveWithJoysticks", new DriveWithJoysticks());
-        SmartDashboard.putData("TimedDrive", new TimedDrive(4));
-        SmartDashboard.putData("DriveTowardTower", new DriveTowardTower(0.25, -0.25));
+        SmartDashboard.putData("TimedDrive", new TimedDrive(2));
+        SmartDashboard.putData("DriveTowardTower", new DriveTowardTower(-0.25,0.25));
         SmartDashboard.putData("GrabGear", new GrabGear());
         SmartDashboard.putData("ReleaseGear", new ReleaseGear());
 
