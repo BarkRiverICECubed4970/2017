@@ -43,7 +43,7 @@ public class DriveWithJoysticks extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.drive(Robot.oi.getJoystick1().getY(), Robot.oi.getJoystick2().getY(), true);  
+    	Robot.driveTrain.drive((-1.0*Robot.oi.getJoystick1().getY()), Robot.oi.getJoystick2().getY(), true);  
        	SmartDashboard.putNumber("joystick1 ydata", Robot.oi.getJoystick1().getY());
        	SmartDashboard.putNumber("joystick2 ydata", Robot.oi.getJoystick2().getY());
     }
