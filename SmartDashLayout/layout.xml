@@ -1,0 +1,72 @@
+<xml version="1.0">
+<dashboard>
+	<widget field="Gear Motor Current" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="20" y="186"/>
+	</widget>
+	<widget field="Grab Gear Current Max" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="2" y="160"/>
+	</widget>
+	<widget field="Release Gear Duty Cycle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="8" y="275"/>
+	</widget>
+	<widget field="Grab Gear Duty Cycle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="9" y="135"/>
+	</widget>
+	<widget field="Counter" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="2" y="1"/>
+	</widget>
+	<widget field="Camera Exposure" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="553" y="376"/>
+	</widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.CameraServerViewer">
+		<location x="551" y="8"/>
+		<width>483</width>
+		<height>363</height>
+		<property name="Camera Choice" value=""/>
+	</static-widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.RobotPreferences">
+		<location x="237" y="143"/>
+	</static-widget>
+	<widget field="Timed Drive DutyCycle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="16" y="405"/>
+	</widget>
+	<widget field="Tower Drive DutyCycle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="15" y="348"/>
+	</widget>
+	<widget field="TimedDrive" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="46" y="368"/>
+	</widget>
+	<widget field="GrabGear" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="46" y="101"/>
+	</widget>
+	<widget field="ReleaseGear" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="37" y="229"/>
+	</widget>
+	<widget field="DriveTowardTower" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="8" y="313"/>
+	</widget>
+	<widget field="PlaceGear" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="44" y="27"/>
+	</widget>
+	<widget field="joystick1 ydata" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="186" y="20"/>
+	</widget>
+	<widget field="joystick2 ydata" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="377" y="15"/>
+	</widget>
+	<widget field="speedcontroller 4" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="367" y="108"/>
+	</widget>
+	<widget field="speedcontroller 3" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="178" y="106"/>
+	</widget>
+	<widget field="speedcontroller 2" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="366" y="78"/>
+	</widget>
+	<widget field="speedcontroller 1" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="177" y="77"/>
+	</widget>
+</dashboard>
+<live-window>
+</live-window>
+</xml>
