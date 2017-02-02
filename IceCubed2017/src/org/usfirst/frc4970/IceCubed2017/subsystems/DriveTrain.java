@@ -15,9 +15,7 @@ import org.usfirst.frc4970.IceCubed2017.RobotMap;
 import org.usfirst.frc4970.IceCubed2017.commands.*;
 import org.usfirst.frc4970.IceCubed2017.Robot;
 
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
