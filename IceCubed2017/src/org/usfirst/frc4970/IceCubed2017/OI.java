@@ -85,9 +85,15 @@ public class OI {
         
         joystickButton1 = new JoystickButton(joystick2, 1);
         joystickButton1.whileHeld(new DriveTowardTower(towerDriveDutyCycle));
+ 
         joystick1 = new Joystick(0);
-        
 
+        joystickButton1 = new JoystickButton(joystick2, 5);
+        joystickButton1.whenPressed(new GrabGear(grabDutyCycle, grabMaxCurrent));
+        
+        joystickButton1 = new JoystickButton(joystick2, 4);
+        joystickButton1.whenPressed(new ReleaseGear(releaseGearTimeout, releaseDutyCycle));
+        
 
         // SmartDashboard Buttons
         SmartDashboard.putData("PlaceGear", new PlaceGear());

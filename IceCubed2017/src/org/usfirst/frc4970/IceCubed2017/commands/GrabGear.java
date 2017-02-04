@@ -53,7 +53,7 @@ public class GrabGear extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.gearMotor.grab(SmartDashboard.getNumber("Grab Gear Duty Cycle", storedDutyCycle));
-		gearMotorCurrent = pdp.getCurrent(0);
+		gearMotorCurrent = pdp.getCurrent(15);
     	SmartDashboard.putNumber("Gear Motor Current", gearMotorCurrent);
     }
 

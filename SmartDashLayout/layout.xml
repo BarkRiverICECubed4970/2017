@@ -1,83 +1,77 @@
 <xml version="1.0">
 <dashboard>
 	<widget field="DriveTowardTower" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="12" y="310"/>
+		<location x="96" y="715"/>
 	</widget>
 	<widget field="TimedDrive" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="53" y="372"/>
+		<location x="184" y="880"/>
 	</widget>
 	<widget field="ReleaseGear" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="42" y="233"/>
+		<location x="177" y="577"/>
 	</widget>
 	<widget field="GrabGear" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="50" y="98"/>
+		<location x="203" y="303"/>
 	</widget>
 	<widget field="Gear Motor Current" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="20" y="186"/>
+		<location x="91" y="504"/>
 	</widget>
 	<widget field="Grab Gear Current Max" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="2" y="160"/>
+		<location x="51" y="444"/>
 	</widget>
 	<widget field="Release Gear Duty Cycle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="3" y="269"/>
+		<location x="53" y="649"/>
 	</widget>
 	<widget field="Grab Gear Duty Cycle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="9" y="135"/>
+		<location x="73" y="379"/>
 	</widget>
 	<widget field="Counter" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="2" y="1"/>
 	</widget>
 	<widget field="Camera Exposure" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="553" y="376"/>
+		<location x="1650" y="1138"/>
 	</widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.CameraServerViewer">
-		<location x="551" y="8"/>
-		<width>483</width>
-		<height>363</height>
+		<location x="1649" y="35"/>
+		<width>1441</width>
+		<height>1083</height>
 		<property name="Camera Choice" value=""/>
 	</static-widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.RobotPreferences">
-		<location x="237" y="143"/>
+		<location x="850" y="341"/>
+		<width>738</width>
+		<height>320</height>
 	</static-widget>
 	<widget field="Timed Drive DutyCycle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="16" y="405"/>
+		<location x="65" y="965"/>
 	</widget>
 	<widget field="Tower Drive DutyCycle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="18" y="345"/>
+		<location x="73" y="800"/>
 	</widget>
 	<widget field="PlaceGear" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="50" y="41"/>
+		<location x="209" y="1058"/>
 	</widget>
 	<widget field="joystick1 ydata" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="186" y="20"/>
+		<location x="75" y="105"/>
 	</widget>
 	<widget field="joystick2 ydata" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="377" y="15"/>
+		<location x="528" y="106"/>
 	</widget>
 	<widget field="speedcontroller 4" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="367" y="108"/>
+		<location x="499" y="241"/>
 	</widget>
 	<widget field="speedcontroller 3" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="178" y="106"/>
+		<location x="41" y="237"/>
+		<height>39</height>
 	</widget>
 	<widget field="speedcontroller 2" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="366" y="78"/>
+		<location x="501" y="183"/>
 	</widget>
 	<widget field="speedcontroller 1" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="177" y="77"/>
+		<location x="40" y="186"/>
 	</widget>
 	<widget field="Auto Selector" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="274" y="369"/>
+		<location x="901" y="26"/>
 	</widget>
-	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.CameraServerViewer">
-		<location x="551" y="8"/>
-		<width>483</width>
-		<height>363</height>
-		<property name="Camera Choice" value=""/>
-	</static-widget>
-	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.RobotPreferences">
-		<location x="237" y="143"/>
-	</static-widget>
 </dashboard>
 <live-window>
 </live-window>
