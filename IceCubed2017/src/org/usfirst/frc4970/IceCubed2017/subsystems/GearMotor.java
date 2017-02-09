@@ -46,11 +46,11 @@ public class GearMotor extends Subsystem {
     }
     
     public void grab(double dutyCycle) {
-    	gearMotorDriver.set(dutyCycle);
+    	gearMotorDriver.set((-1.0*dutyCycle));
     }
     
     public void release(double dutyCycle) {
-    	gearMotorDriver.set((-1.0*dutyCycle));
+    	gearMotorDriver.set(dutyCycle);
     }
     
     public void stop() {
