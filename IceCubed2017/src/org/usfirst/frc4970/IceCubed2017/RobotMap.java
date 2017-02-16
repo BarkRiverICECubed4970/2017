@@ -61,6 +61,8 @@ public class RobotMap {
         driveTrainRobotDrive41.setMaxOutput(1.0);
         driveTrainRobotDrive41.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
         driveTrainRobotDrive41.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
+        driveTrainRobotDrive41.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
+        driveTrainRobotDrive41.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
 
         liftMotorGearMotorDriver = new Spark(5);
         LiveWindow.addActuator("LiftMotor", "LiftMotorDriver", (Spark) liftMotorGearMotorDriver); 

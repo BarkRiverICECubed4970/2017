@@ -51,7 +51,7 @@ public class TimedDrive extends TimedCommand {
     protected void execute() {
     	timedDriveDutyCycle = SmartDashboard.getNumber("Timed Drive DutyCycle", storedDutyCycle);
     	Robot.driveTrain.drive(timedDriveDutyCycle, 
-    						   (-1.0*timedDriveDutyCycle), false);
+    						   (timedDriveDutyCycle), false);
     }
 
 

@@ -42,7 +42,7 @@ public class DriveTowardTower extends Command {
     protected void execute() {
        	driveTowardTowerDutyCycle = SmartDashboard.getNumber("Tower Drive DutyCycle", storedDutyCycle);
            	Robot.driveTrain.drive(driveTowardTowerDutyCycle, 
-    			(-1.0*driveTowardTowerDutyCycle), false);
+    			(driveTowardTowerDutyCycle), false);
     }
 
     // Make this return true when this Command no longer needs to run execute()

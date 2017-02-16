@@ -47,7 +47,7 @@ public class DriveWithJoysticks extends Command {
     protected void execute() {
     	leftJoy = Robot.oi.getJoystick1().getY();
     	rightJoy = Robot.oi.getJoystick2().getY();
-    	Robot.driveTrain.drive((leftJoy*leftJoy*leftJoy), (-1.0*rightJoy*rightJoy*rightJoy), false);  
+    	Robot.driveTrain.drive((leftJoy), (rightJoy), false);  
        	SmartDashboard.putNumber("joystick1 ydata", leftJoy);
        	SmartDashboard.putNumber("joystick2 ydata", rightJoy);
     }
