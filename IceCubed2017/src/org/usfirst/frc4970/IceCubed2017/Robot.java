@@ -50,6 +50,7 @@ public class Robot extends IterativeRobot {
     public static int releaseGearTimeout;
     public static int lowerTrayTimeout;
     public static double grabDutyCycle;
+    public static double grabMaxDutyCycle;
     public static double grabMaxCurrent;
     public static double releaseDutyCycle;
     public static double timedDriveDutyCycle;
@@ -85,7 +86,8 @@ public class Robot extends IterativeRobot {
         timedDriveTimeout = prefs.getInt("Timed Drive Seconds", 4);
         releaseGearTimeout = prefs.getInt("Release Seconds", 4);
         lowerTrayTimeout = prefs.getInt("Lower Seconds", 4);
-        grabDutyCycle = 0.4;
+        grabDutyCycle = 0.3;
+        grabMaxDutyCycle = 0.6;
         grabMaxCurrent = 8.0;
         releaseDutyCycle = 0.5;
         liftTrayDutyCycle = 0.25;

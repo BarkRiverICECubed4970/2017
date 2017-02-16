@@ -71,16 +71,16 @@ public class OI {
  
         joystick1 = new Joystick(0);
 
-        joystickButton1 = new JoystickButton(joystick2, 2);
+        joystickButton1 = new JoystickButton(joystick1, 2);
         joystickButton1.whenPressed(new LowerTray(Robot.lowerTrayTimeout, Robot.lowerTrayDutyCycle));
         
-        joystickButton2 = new JoystickButton(joystick2, 3);
+        joystickButton2 = new JoystickButton(joystick1, 4);
         joystickButton2.whenPressed(new LiftTray(Robot.liftTrayDutyCycle));
 
-        joystickButton3 = new JoystickButton(joystick2, 5);
+        joystickButton3 = new JoystickButton(joystick1, 1);
         joystickButton3.whenPressed(new GrabGear(Robot.grabDutyCycle, Robot.grabMaxCurrent));
         
-        joystickButton4 = new JoystickButton(joystick2, 4);
+        joystickButton4 = new JoystickButton(joystick1, 3);
         joystickButton4.whenPressed(new ReleaseGear(Robot.releaseGearTimeout, Robot.releaseDutyCycle));
          
         // SmartDashboard Buttons
