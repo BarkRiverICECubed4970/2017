@@ -55,9 +55,10 @@ public class DriveTrain extends Subsystem {
         // setDefaultCommand(new MySpecialCommand());
     }
     
-    public void drive(double left, double right, boolean squaredInputs) {
+    public void drive(double forward, double rotate, boolean squaredInputs) {
 //    	robotDrive41.tankDrive(left, right, squaredInputs);
-    	robotDrive41.arcadeDrive(Robot.oi.getJoystick1());
+//    	robotDrive41.arcadeDrive(Robot.oi.getJoystick1());
+    	robotDrive41.arcadeDrive(forward, rotate, false);
        	SmartDashboard.putNumber("speedcontroller 1", Robot.driveTrain.speedController1.get());
        	SmartDashboard.putNumber("speedcontroller 2", Robot.driveTrain.speedController2.get());
        	SmartDashboard.putNumber("speedcontroller 3", Robot.driveTrain.speedController3.get());
