@@ -53,7 +53,7 @@ public class TimedDrive extends TimedCommand {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.drive(timedDriveDutyCycle, 
+    	Robot.driveTrain.drive(-timedDriveDutyCycle, 
     						   (-Robot.getGyroAngle()*kP), false);
     }
 

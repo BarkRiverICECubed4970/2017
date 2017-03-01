@@ -183,6 +183,7 @@ public class Robot extends IterativeRobot {
         	double counter = 0;
         	while (true) {
         		SmartDashboard.putNumber("Counter", counter++);
+        		SmartDashboard.putNumber("Raw Range Values", Robot.getSonarAverage());
         		Timer.delay(0.1);
         	}
         }).start();        

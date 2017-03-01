@@ -19,10 +19,10 @@ import org.usfirst.frc4970.IceCubed2017.Robot;
  */
 public class PlaceGear extends CommandGroup {
     public PlaceGear() {
-    	addParallel(new HoldGear(Robot.grabDutyCycle));
+ //   	addParallel(new HoldGear(Robot.grabDutyCycle));
     	addSequential(new TimedDrive(Robot.timedDriveTimeout, Robot.timedDriveDutyCycle));
-    	addSequential(new TimedTurn(Robot.timedTurnTimeout, Robot.timedTurnRate));
-    	addSequential(new DriveTowardTower(Robot.towerDriveDutyCycle));
-    	addSequential(new ReleaseGear(Robot.releaseGearTimeout, Robot.releaseDutyCycle));
+//    	addSequential(new TimedTurn(Robot.timedTurnTimeout, Robot.timedTurnRate));
+ //   	addSequential(new DriveTowardTower(Robot.towerDriveDutyCycle));
+//    	addSequential(new ReleaseGear(Robot.releaseGearTimeout, Robot.releaseDutyCycle));
     }
 }
