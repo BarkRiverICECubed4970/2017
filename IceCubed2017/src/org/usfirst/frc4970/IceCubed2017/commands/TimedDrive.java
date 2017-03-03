@@ -47,7 +47,7 @@ public class TimedDrive extends TimedCommand {
     // Called just before this Command runs the first time
     protected void initialize() {
     	timedDriveDutyCycle = SmartDashboard.getNumber("Timed Drive DutyCycle", storedDutyCycle);
-    	kP = SmartDashboard.getNumber("Timed Drive DutyCycle", 0.03);
+    	kP = SmartDashboard.getNumber("Timed Drive kP", 0.03);
     	Robot.resetGyro();
     }
 
