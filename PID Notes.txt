@@ -1,9 +1,2 @@
-The setpoint (input) is now powerdistribution panel channel 7 current.
-
-Joystick1 button1 is now tied to GrabGear() "whenpressed"... GrabGear() needs to "finish" when releaseGear() is called.
-
-Joystick1 button2 is now tied to ReleaseGear() "whenpressed"... this needs to "finish" after a certain time has expired (limit switch will be hit in a number of seconds anyway... just run for a time), or when Joystick1 button1 is pressed again.
-
-GrabGear() needs to invoke/enable the PID subsystem GearGrabber()
-
-ReleaseGear() needs to access the "motor driver" actuator within the GearGrabber PID subsystem (or it needs to create a new actuator)
+turn degrees KP => 0.01 (starts with big error, I term may help with this... needs to be the same as drive toward tower KP)
+drive toward tower KP => 0.003 (works really well)
