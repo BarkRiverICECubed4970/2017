@@ -20,8 +20,16 @@ import org.usfirst.frc4970.IceCubed2017.Robot;
 public class PlaceGear extends CommandGroup {
     public PlaceGear(double turnDegrees) {
     	addParallel(new HoldGear(Robot.grabDutyCycle));
-    	addSequential(new TimedDrive());
-    	addSequential(new TurnDegrees(turnDegrees));
+    	if (turnDegrees != 0.0)
+    	{
+    		// not in center position, use the longer timed drive
+        	addSequential(new TimedDrive(false));
+    		addSequential(new TurnDegrees(turnDegrees));
+    	} else
+    	{
+    		// in center position, use the shorter timed drive
+        	addSequential(new TimedDrive(true));    		
+    	}
     	addSequential(new DriveTowardTower());
     	addSequential(new ReleaseGear());
     	addSequential(new ReverseDrive());

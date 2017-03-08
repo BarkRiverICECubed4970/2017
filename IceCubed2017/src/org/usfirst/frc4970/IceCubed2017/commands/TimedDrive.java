@@ -22,17 +22,27 @@ import org.usfirst.frc4970.IceCubed2017.subsystems.DriveTrain;
  */
 public class TimedDrive extends Command {
 
-    public TimedDrive() {
+	private static boolean centerPosition;
+	private static double timeout;
+	
+	public TimedDrive(boolean isCenter) {
 
         requires(Robot.driveTrain);
 
+        centerPosition = isCenter;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.timedDriveDutyCycle = SmartDashboard.getNumber("Timed Drive DutyCycle", Robot.timedDriveDutyCycle);
-    	Robot.timedDriveTimeout = SmartDashboard.getNumber("Timed Drive Timeout", Robot.timedDriveTimeout);
-    	setTimeout(Robot.timedDriveTimeout);
+    	Robot.timedDriveDutyCycle = SmartDashboard.getNumber("Timed Drive DutyCycle", Robot.timedDriveDutyCycle);	
+    	if (centerPosition)
+    	{
+        	timeout = SmartDashboard.getNumber("Center Timed Drive Timeout", Robot.centerTimedDriveTimeout);    		
+    	} else
+    	{
+        	timeout = SmartDashboard.getNumber("Side Timed Drive Timeout", Robot.sideTimedDriveTimeout);    		    		
+    	}
+    	setTimeout(timeout);
     	Robot.driveTrain.resetGyro();
     	Robot.driveTrain.setupGyroPID(Robot.driveTrain.getGyroAngle());
     	Robot.driveTrain.controlLoop(DriveTrain.TIMED_DRIVE);

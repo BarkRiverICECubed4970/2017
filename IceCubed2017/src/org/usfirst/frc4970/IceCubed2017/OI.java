@@ -90,7 +90,8 @@ public class OI {
         joystickButton7.whenPressed(new ToggleCamera());
         
         // SmartDashboard Buttons
-        SmartDashboard.putData("TimedDrive", new TimedDrive());
+        SmartDashboard.putData("CenterTimedDrive", new TimedDrive(true));
+        SmartDashboard.putData("SideTimedDrive", new TimedDrive(false));
         SmartDashboard.putData("DriveTowardTower", new DriveTowardTower());
         SmartDashboard.putData("GrabGear", new GrabGear());
         SmartDashboard.putData("ReleaseGear", new ReleaseGear(Robot.releaseGearTimeout));
