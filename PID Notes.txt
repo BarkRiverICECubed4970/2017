@@ -1,2 +1,2 @@
 turn degrees KP => 0.01 (starts with big error, I term may help with this... needs to be the same as drive toward tower KP)
-drive toward tower KP => 0.003 (works really well)
+drive toward tower KP => 0.003 (works really well, but this is driving by pixel error, not degree error)

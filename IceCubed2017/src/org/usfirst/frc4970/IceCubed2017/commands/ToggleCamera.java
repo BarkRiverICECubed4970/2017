@@ -11,7 +11,6 @@
 
 package org.usfirst.frc4970.IceCubed2017.commands;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc4970.IceCubed2017.Robot;
 
