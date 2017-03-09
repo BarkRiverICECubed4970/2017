@@ -109,7 +109,7 @@ public class DriveTrain extends Subsystem implements PIDOutput {
         /* set up rangefinder */
         sonar.setOversampleBits(4);
         sonar.setAverageBits(2);
-        AnalogInput.setGlobalSampleRate(500000);
+        AnalogInput.setGlobalSampleRate(62500);
     }
     
     public int getSonarAverage()

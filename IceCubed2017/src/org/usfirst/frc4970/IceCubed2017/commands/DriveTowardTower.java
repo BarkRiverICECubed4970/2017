@@ -33,6 +33,7 @@ public class DriveTowardTower extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.setExposure(1);
     	Robot.towerDriveDutyCycle = SmartDashboard.getNumber("Tower Drive DutyCycle", Robot.towerDriveDutyCycle);
     	Robot.towerDriveTimeout = SmartDashboard.getNumber("Tower Drive Timeout", Robot.towerDriveTimeout);
     	Robot.pixelsToDegrees = SmartDashboard.getNumber("Pixels To Degrees", Robot.pixelsToDegrees);
@@ -78,6 +79,7 @@ public class DriveTowardTower extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.driveTrain.controlLoop(DriveTrain.STOP_MOTOR);
+    	Robot.setExposure(3);
     }
 
     // Called when another command which requires one or more of the same

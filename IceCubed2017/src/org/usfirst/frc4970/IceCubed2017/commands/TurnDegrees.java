@@ -41,10 +41,10 @@ public class TurnDegrees extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.turnDegreesTimeout = SmartDashboard.getNumber("Turn Degrees Timeout", Robot.turnDegreesTimeout);
+    	turnDegrees = SmartDashboard.getNumber("Turn Degrees", turnDegrees);
     	setTimeout(Robot.turnDegreesTimeout);
     	Robot.driveTrain.resetGyro();
     	Robot.driveTrain.setupGyroPID(turnDegrees);
-    	Robot.driveTrain.controlLoop(DriveTrain.TURN_DEGREES);
     }
 
     // Called repeatedly when this Command is scheduled to run

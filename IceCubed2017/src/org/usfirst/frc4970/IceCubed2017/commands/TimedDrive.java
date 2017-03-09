@@ -22,8 +22,8 @@ import org.usfirst.frc4970.IceCubed2017.subsystems.DriveTrain;
  */
 public class TimedDrive extends Command {
 
-	private static boolean centerPosition;
-	private static double timeout;
+	private boolean centerPosition;
+	private double timeout;
 	
 	public TimedDrive(boolean isCenter) {
 
@@ -45,7 +45,6 @@ public class TimedDrive extends Command {
     	setTimeout(timeout);
     	Robot.driveTrain.resetGyro();
     	Robot.driveTrain.setupGyroPID(Robot.driveTrain.getGyroAngle());
-    	Robot.driveTrain.controlLoop(DriveTrain.TIMED_DRIVE);
     }
 
     // Called repeatedly when this Command is scheduled to run
