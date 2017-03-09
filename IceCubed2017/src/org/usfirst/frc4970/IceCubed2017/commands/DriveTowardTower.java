@@ -39,7 +39,9 @@ public class DriveTowardTower extends Command {
     	Robot.pixelsToDegrees = SmartDashboard.getNumber("Pixels To Degrees", Robot.pixelsToDegrees);
     	setTimeout(Robot.towerDriveTimeout);
     	Robot.driveTrain.resetGyro();
-    	Robot.driveTrain.setupGyroPID(Robot.driveTrain.getGyroAngle());
+    	Robot.driveTrain.setupGyroPID();
+    	// redundant, since setupGyroPID() does this already
+    	Robot.driveTrain.setGyroPidSetpoint(0.0);
     	Robot.driveTrain.controlLoop(DriveTrain.STOP_MOTOR);
     	targetFound = false;
     }

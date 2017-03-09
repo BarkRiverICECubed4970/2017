@@ -33,7 +33,7 @@ public class DriveTrain extends Subsystem implements PIDOutput {
     public static AnalogInput sonar = new AnalogInput(3);;
     
     private final PIDController gyroPid = new PIDController(0.010, 0, 0, gyro, this);
-
+    
     // control state values
     public static final int JOYSTICKS = 1;
     public static final int TOWER_DRIVE = 2;
@@ -59,7 +59,7 @@ public class DriveTrain extends Subsystem implements PIDOutput {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-    public void setupGyroPID(double setPoint)
+    public void setupGyroPID()
     {
     	Robot.gyroPidKp = SmartDashboard.getNumber("Gyro PID KP", Robot.gyroPidKp);
     	Robot.gyroPidKi = SmartDashboard.getNumber("Gyro PID KI", Robot.gyroPidKi);
@@ -69,19 +69,55 @@ public class DriveTrain extends Subsystem implements PIDOutput {
     	Robot.gyroPidMinOut = SmartDashboard.getNumber("Gyro PID Min Output", Robot.gyroPidMinOut);
     	Robot.gyroPidMaxOut = SmartDashboard.getNumber("Gyro PID Max Output", Robot.gyroPidMaxOut);
     	Robot.gyroPidTolerance = SmartDashboard.getNumber("Gyro PID Tolerance", Robot.gyroPidTolerance);
+    	Robot.gyroPidMaxSetpoint = SmartDashboard.getNumber("Gyro PID Max Setpoint", Robot.gyroPidMaxSetpoint);
 
     	gyroPid.reset();
 		gyroPid.setPID(Robot.gyroPidKp, Robot.gyroPidKi , Robot.gyroPidKd);
 		gyroPid.setInputRange(Robot.gyroPidMinIn, Robot.gyroPidMaxIn);
 		gyroPid.setOutputRange(Robot.gyroPidMinOut, Robot.gyroPidMaxOut);
 		gyroPid.setAbsoluteTolerance(Robot.gyroPidTolerance);
-		gyroPid.setSetpoint(setPoint);
+		gyroPid.setSetpoint(0.0);
+		
+		/*
+		 *  commands should be calling this, but call this just in case
+		 *  since the pidSetpoint is initialized to 0.0 for ramping purposes
+		 */
+		gyro.reset();
+		
 		gyroPid.enable();
     }
     
+    /*
+     *  keep these off the call stack, since this function is called
+     *  from execute() loops inside of commands (roughly every 20 ms) 
+     */
+   
+    private double gyroAngle;
+    private double potentialError;
+    
     public void setGyroPidSetpoint(double setPoint)
     {
-		gyroPid.setSetpoint(setPoint);    	
+    	gyroAngle = gyro.getAngle();
+    	potentialError = setPoint - gyroAngle;
+    	
+    	/* 
+    	 * the first check represents the possible error if the PID were fed
+    	 * the input parameter "setPoint". If this potential error is too large, 
+    	 * then reduce it to something that won't go wild with a more aggressive 
+    	 * kP term
+    	 */
+    	if ((Math.abs(potentialError)) > Robot.gyroPidMaxSetpoint)
+    	{    		
+    		/*
+    		 * if setpoint is greater than angle, then add the max setpoint to the
+    		 * current angle, or else subtract the max setpoint from the current
+    		 * angle
+    		 */
+    		gyroPid.setSetpoint((Math.copySign(Robot.gyroPidMaxSetpoint, potentialError) + gyroAngle));
+    	} else
+    	{
+    		gyroPid.setSetpoint(setPoint);    	    		
+    	}
     }
     
     public boolean gyroPidOnTarget()
@@ -171,23 +207,14 @@ public class DriveTrain extends Subsystem implements PIDOutput {
     	
     	dutyCycleLimit = SmartDashboard.getNumber("Max Drive DutyCycle",1.0);
 
-    	if (dutyCycleLimit < 1.0)
+		if (Math.abs(forward) > dutyCycleLimit)
     	{
-    		if (forward < (-1.0*dutyCycleLimit))
-    		{
-    			forward = -1.0*dutyCycleLimit;
-    		} else if (forward > dutyCycleLimit)
-    		{
-    			forward = dutyCycleLimit;
-    		}
-    		
-    		if (rotate < (-1.0*dutyCycleLimit))
-    		{
-    			rotate = -1.0*dutyCycleLimit;
-    		} else if (rotate > dutyCycleLimit)
-    		{
-    			rotate = dutyCycleLimit;
-    		}
+    		forward = Math.copySign(dutyCycleLimit, forward);    	
+    	}
+		
+		if (Math.abs(rotate) > dutyCycleLimit)
+    	{
+    		rotate = Math.copySign(dutyCycleLimit, rotate);    	
     	}
     	
     	robotDrive41.arcadeDrive(forward, rotate, false);

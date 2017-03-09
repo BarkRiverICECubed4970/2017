@@ -44,7 +44,9 @@ public class TimedDrive extends Command {
     	}
     	setTimeout(timeout);
     	Robot.driveTrain.resetGyro();
-    	Robot.driveTrain.setupGyroPID(Robot.driveTrain.getGyroAngle());
+    	Robot.driveTrain.setupGyroPID();
+    	// redundant, since setupGyroPID() does this already
+    	Robot.driveTrain.setGyroPidSetpoint(0.0);
     }
 
     // Called repeatedly when this Command is scheduled to run
