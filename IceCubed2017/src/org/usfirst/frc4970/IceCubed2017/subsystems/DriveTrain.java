@@ -122,7 +122,7 @@ public class DriveTrain extends Subsystem implements PIDOutput {
     
     public boolean gyroPidOnTarget()
     {
-    	return gyroPid.onTarget();
+    	return (Math.abs(gyroPid.getError()) < Robot.gyroPidTolerance);
     }
     
     public void calibrateGyro()
