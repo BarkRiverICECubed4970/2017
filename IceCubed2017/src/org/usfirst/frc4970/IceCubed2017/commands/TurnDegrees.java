@@ -46,6 +46,7 @@ public class TurnDegrees extends Command {
     		desiredAngle = SmartDashboard.getNumber("Turn Degrees", desiredAngle);
     	}
     	setTimeout(Robot.turnDegreesTimeout);
+    	Robot.driveTrain.resetOnTargetCount();
     	Robot.driveTrain.resetGyro();
     	Robot.driveTrain.setupGyroPID();
     	// redundant, since setupGyroPID() does this already

@@ -30,7 +30,7 @@ public class ReverseDrive extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.timedDriveDutyCycle = SmartDashboard.getNumber("Timed Drive DutyCycle", Robot.timedDriveDutyCycle);
+//    	Robot.timedDriveDutyCycle = SmartDashboard.getNumber("Timed Drive DutyCycle", Robot.timedDriveDutyCycle);
     	Robot.reverseDriveTimeout = SmartDashboard.getNumber("Reverse Drive Timeout", Robot.reverseDriveTimeout);
     	setTimeout(Robot.reverseDriveTimeout);
     	Robot.driveTrain.controlLoop(DriveTrain.REVERSE_DRIVE);

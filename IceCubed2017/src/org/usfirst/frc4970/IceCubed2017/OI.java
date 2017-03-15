@@ -72,7 +72,7 @@ public class OI {
         joystickButton1.whenPressed(new LowerTray(Robot.lowerTrayTimeout));
         
         joystickButton2 = new JoystickButton(joystick1, 4);
-        joystickButton2.whenPressed(new LiftTray());
+        joystickButton2.whenPressed(new LiftTray(false));
 
         joystickButton3 = new JoystickButton(joystick1, 1);
         joystickButton3.whenPressed(new GrabGear());
@@ -95,7 +95,7 @@ public class OI {
         SmartDashboard.putData("DriveTowardTower", new DriveTowardTower());
         SmartDashboard.putData("GrabGear", new GrabGear());
         SmartDashboard.putData("ReleaseGear", new ReleaseGear(Robot.releaseGearTimeout));
-        SmartDashboard.putData("LiftTray", new LiftTray());
+        SmartDashboard.putData("LiftTray", new LiftTray(false));
         SmartDashboard.putData("LowerTray", new LowerTray(Robot.lowerTrayTimeout));
         SmartDashboard.putData("CalibrateGyro", new CalibrateGyro());
         SmartDashboard.putData("TurnDegrees", new TurnDegrees(SmartDashboard.getNumber("Turn Degrees", Robot.turnDegrees)));

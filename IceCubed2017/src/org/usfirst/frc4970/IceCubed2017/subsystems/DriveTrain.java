@@ -30,7 +30,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class DriveTrain extends Subsystem implements PIDOutput {
 
     public static ADXRS450_Gyro gyro = new ADXRS450_Gyro();        	
-    public static AnalogInput sonar = new AnalogInput(3);;
+    public static AnalogInput sonar = new AnalogInput(3);
     
     private final PIDController gyroPid = new PIDController(0.010, 0, 0, gyro, this);
     
@@ -120,9 +120,30 @@ public class DriveTrain extends Subsystem implements PIDOutput {
     	}
     }
     
+    static int onTargetCount = 0;
+    static final int onTargetThresh = 10;
     public boolean gyroPidOnTarget()
     {
-    	return (Math.abs(gyroPid.getError()) < Robot.gyroPidTolerance);
+    	if (Math.abs(gyroPid.getError()) < Robot.gyroPidTolerance)
+    	{
+    		onTargetCount++;
+    		if (onTargetCount >= onTargetThresh)
+    		{
+    			onTargetCount = 0;
+    			return true;
+    		}
+    	} else 
+    	{
+    		onTargetCount = 0;
+    		return false;
+    	}
+    	
+    	return false;
+    }
+    
+    public void resetOnTargetCount()
+    {
+    	onTargetCount = 0;
     }
     
     public void calibrateGyro()
@@ -189,7 +210,7 @@ public class DriveTrain extends Subsystem implements PIDOutput {
     		break;
     		
     	case REVERSE_DRIVE:
-    		forward = Robot.timedDriveDutyCycle;
+    		forward = Robot.reverseDriveDutyCycle;
     		rotate = 0.0;    		
     		break;
     		
