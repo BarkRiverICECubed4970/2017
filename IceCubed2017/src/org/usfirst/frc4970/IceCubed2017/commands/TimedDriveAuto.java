@@ -20,40 +20,46 @@ import org.usfirst.frc4970.IceCubed2017.subsystems.DriveTrain;
 /**
  *
  */
-public class ReverseDrive extends Command {
+public class TimedDriveAuto extends Command {
 
-    public ReverseDrive() {
+	private boolean centerPosition;
+	private double timeout;
+	
+	public TimedDriveAuto(boolean isCenter) {
 
         requires(Robot.driveTrain);
 
+        centerPosition = isCenter;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-//    	Robot.timedDriveDutyCycle = SmartDashboard.getNumber("Timed Drive DutyCycle", Robot.timedDriveDutyCycle);
-    	Robot.reverseDriveTimeout = SmartDashboard.getNumber("Reverse Drive Timeout", Robot.reverseDriveTimeout);
-    	setTimeout(Robot.reverseDriveTimeout);
-    	Robot.driveTrain.controlLoop(DriveTrain.REVERSE_DRIVE);
+    	Robot.timedDriveDutyCycle = SmartDashboard.getNumber("Timed Drive DutyCycle", Robot.timedDriveDutyCycle);	
+    	if (centerPosition)
+    	{
+        	timeout = SmartDashboard.getNumber("Center Timed Drive Timeout", Robot.centerTimedDriveTimeout);    		
+    	} else
+    	{
+        	timeout = SmartDashboard.getNumber("Side Timed Drive Timeout", Robot.sideTimedDriveTimeout);    		    		
+    	}
+    	setTimeout(timeout);
+    	Robot.driveTrain.resetGyro();
+    	Robot.driveTrain.setupGyroPID();
+    	// redundant, since setupGyroPID() does this already
+    	Robot.driveTrain.setGyroPidSetpoint(0.0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	// don't reverse if we're in auto mode and the target hasn't been found
-    	if ((Robot.inAuto == false) || (Robot.targetFound == true))
+    	// execute ONLY if in auto mode and target was not found
+    	if ((Robot.inAuto == true) && (Robot.targetFound == false))
     	{
-    		Robot.driveTrain.controlLoop(DriveTrain.REVERSE_DRIVE);
+        	Robot.driveTrain.controlLoop(DriveTrain.TIMED_DRIVE);    		
     	}
     }
 
     protected boolean isFinished() {
-    	// exit if we're in auto and didn't find the target, or if the function times out
-    	if (((Robot.inAuto == true) && (Robot.targetFound == false)) || (isTimedOut() == true))
-    	{
-    		return true;
-    	} else
-    	{
-    		return false;
-    	}
+        return isTimedOut();
     }
     
     // Called once after isFinished returns true

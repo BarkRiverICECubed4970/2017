@@ -23,7 +23,6 @@ public class DriveTowardTower extends Command {
 
 	private double centerXValue;
 	private double degrees;
-	private static boolean targetFound;
 	
     public DriveTowardTower() {
 
@@ -43,7 +42,7 @@ public class DriveTowardTower extends Command {
     	// redundant, since setupGyroPID() does this already
     	Robot.driveTrain.setGyroPidSetpoint(0.0);
     	Robot.driveTrain.controlLoop(DriveTrain.STOP_MOTOR);
-    	targetFound = false;
+    	Robot.targetFound = false;
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -62,14 +61,14 @@ public class DriveTowardTower extends Command {
     		Robot.driveTrain.setGyroPidSetpoint(degrees);
     		
     		SmartDashboard.putNumber("centerXValue", centerXValue);
-    		targetFound = true;
+    		Robot.targetFound = true;
     	}
 
     	/* 
     	 * as long as the target was found at least once, drive toward
     	 * the computed angle
     	 */
-    	if (targetFound == true)
+    	if (Robot.targetFound == true)
     	{
     		Robot.driveTrain.controlLoop(DriveTrain.TOWER_DRIVE);
     	}    	
@@ -90,5 +89,5 @@ public class DriveTowardTower extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     	end();
-    }
+    }    
 }

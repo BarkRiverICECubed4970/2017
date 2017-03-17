@@ -31,8 +31,10 @@ public class PlaceGear extends CommandGroup {
         	addSequential(new TimedDrive(true));    		
     	}
     	addSequential(new DriveTowardTower());
+
     	addSequential(new ReleaseGear(0.5));
-    	addSequential(new LiftTray(true));
-    	addSequential(new ReverseDrive());
+   		addSequential(new LiftTray(true));
+   		addSequential(new ReverseDrive());
+    	addSequential(new TimedDriveAuto(false));   		
     }
 }
