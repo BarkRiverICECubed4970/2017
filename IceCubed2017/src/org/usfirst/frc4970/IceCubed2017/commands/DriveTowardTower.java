@@ -52,8 +52,8 @@ public class DriveTowardTower extends Command {
     	{
     		centerXValue = (Robot.centerXArray[0] - Robot.centerXArray[1])/2.0 + Robot.centerXArray[1];
     		// change centerX to drive direction
-//    		centerXValue = centerXValue - Robot.IMG_CENTER;
-    		centerXValue = centerXValue - 143.0;
+    		centerXValue = centerXValue - Robot.IMG_CENTER;
+//    		centerXValue = centerXValue - 143.0;
     	
     		// convert centerXValue to degrees to turn
     		degrees = centerXValue * Robot.pixelsToDegrees;
