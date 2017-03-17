@@ -56,7 +56,7 @@ public class Robot extends IterativeRobot {
     public static int cameraView = GEARCAM;
 
     public static double centerTimedDriveTimeout = 0.5;
-    public static double sideTimedDriveTimeout = 1.5;
+    public static double sideTimedDriveTimeout = 1.7;
     public static double towerDriveTimeout = 3.5;
     public static double turnDegreesTimeout = 3.0;
     public static double reverseDriveTimeout = 2.0;
