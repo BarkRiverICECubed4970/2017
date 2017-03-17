@@ -190,7 +190,13 @@ public class DriveTrain extends Subsystem implements PIDOutput {
     	switch (commandInControl) {
 
     	case JOYSTICKS:
-    		forward = Robot.oi.getJoystick1().getRawAxis(1);
+    		if (Robot.getCameraView() == Robot.GEARCAM)
+    		{
+    			forward = Robot.oi.getJoystick1().getRawAxis(1);
+    		} else
+    		{
+    			forward = -Robot.oi.getJoystick1().getRawAxis(1);    			
+    		}
     		rotate = Robot.oi.getJoystick1().getRawAxis(0);
     		break;
     		

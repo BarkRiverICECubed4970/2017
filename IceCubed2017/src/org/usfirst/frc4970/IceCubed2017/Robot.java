@@ -51,8 +51,8 @@ public class Robot extends IterativeRobot {
     private static UsbCamera climbCamera;
     private static int cameraExposure = 3;
     
-    private static final int GEARCAM = 0;
-    private static final int CLIMBCAM = 1;
+    public static final int GEARCAM = 0;
+    public static final int CLIMBCAM = 1;
     public static int cameraView = GEARCAM;
 
     public static double centerTimedDriveTimeout = 0.5;
@@ -215,6 +215,11 @@ public class Robot extends IterativeRobot {
     	{
     		cameraView = GEARCAM;
     	}
+    }
+     
+    public static int getCameraView()
+    {
+    	return cameraView;
     }
      
     public static boolean updateCenterXArray()
