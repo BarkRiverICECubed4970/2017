@@ -38,8 +38,9 @@ public class ReverseDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	// don't reverse if we're in auto mode and the target hasn't been found
-    	if ((Robot.inAuto == false) || (Robot.targetFound == true))
+    	// don't reverse if we're in auto mode and the target hasn't been found and we're not going to gamble
+    	// and release the gear anyway
+    	if ((Robot.inAuto == false) || (Robot.targetFound == true) || (Robot.gambleInAuto == true))
     	{
     		Robot.driveTrain.controlLoop(DriveTrain.REVERSE_DRIVE);
     	}
@@ -47,7 +48,7 @@ public class ReverseDrive extends Command {
 
     protected boolean isFinished() {
     	// exit if we're in auto and didn't find the target, or if the function times out
-    	if (((Robot.inAuto == true) && (Robot.targetFound == false)) || (isTimedOut() == true))
+    	if (((Robot.inAuto == true) && (Robot.targetFound == false) && (Robot.gambleInAuto == false)) || (isTimedOut() == true))
     	{
     		return true;
     	} else

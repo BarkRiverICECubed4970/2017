@@ -14,7 +14,6 @@ package org.usfirst.frc4970.IceCubed2017;
 import edu.wpi.cscore.CvSink;
 import edu.wpi.cscore.CvSource;
 import edu.wpi.cscore.UsbCamera;
-import edu.wpi.cscore.VideoSink;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Timer;
@@ -98,7 +97,8 @@ public class Robot extends IterativeRobot {
     
     public static boolean targetFound = false;
     public static boolean inAuto = false;
-    
+    public static boolean gambleInAuto = false;
+        
     private static NetworkTable table;
     
     /**
@@ -128,9 +128,10 @@ public class Robot extends IterativeRobot {
         // instantiate the command used for the autonomous period
         autoChooser = new SendableChooser<Command>();
         autoChooser.addDefault("Timed Drive", new TimedDrive(false));
-        autoChooser.addObject("Place Gear Left", new PlaceGear(60.0));
-        autoChooser.addObject("Place Gear Center", new PlaceGear(0.0));
-        autoChooser.addObject("Place Gear Right", new PlaceGear(-60.0));
+        autoChooser.addObject("Place Gear Left", new PlaceGear(60.0, false));
+        autoChooser.addObject("Place Gear Center Feeling Lucky", new PlaceGear(0.0, true));
+        autoChooser.addObject("Place Gear Center Safe", new PlaceGear(0.0, false));
+        autoChooser.addObject("Place Gear Right", new PlaceGear(-60.0, false));
         autoChooser.addObject("Do Nothing", null);
         SmartDashboard.putData("Autonomous chooser", autoChooser);
 
