@@ -35,12 +35,13 @@ public class PlaceGear extends CommandGroup {
         	addSequential(new TimedDrive(true));    		
     	}
     	
+    	
     	// attempt to find the target and set a gyro heading
     	addSequential(new DriveTowardTower());
 
-    	// if no target is found, then drive straight
-    	addSequential(new TimedDriveAuto(false));   		
-
+   		// if no target is found, then drive straight
+   		addSequential(new TimedDriveAuto(false));   		
+    	
     	addSequential(new ReleaseGear(0.5));
    		addSequential(new LiftTray(true));
    		addSequential(new ReverseDrive());

@@ -37,7 +37,7 @@ public class TimedDriveAuto extends Command {
     	Robot.timedDriveDutyCycle = SmartDashboard.getNumber("Timed Drive DutyCycle", Robot.timedDriveDutyCycle);	
     	if (centerPosition)
     	{
-        	timeout = SmartDashboard.getNumber("Center Timed Drive Timeout", Robot.centerTimedDriveTimeout);    		
+           	timeout = SmartDashboard.getNumber("Center Timed Drive Timeout", Robot.centerTimedDriveTimeout);    		    			
     	} else
     	{
         	timeout = SmartDashboard.getNumber("Side Timed Drive Timeout", Robot.sideTimedDriveTimeout);    		    		
@@ -51,15 +51,15 @@ public class TimedDriveAuto extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	// execute ONLY if in auto mode and target was not found
-    	if ((Robot.inAuto == true) && (Robot.targetFound == false))
+    	// execute ONLY if the target was not found
+    	if (Robot.targetFound == false)
     	{
         	Robot.driveTrain.controlLoop(DriveTrain.TIMED_DRIVE);    		
     	}
     }
 
     protected boolean isFinished() {
-        return isTimedOut();
+        return (isTimedOut() || (Robot.targetFound == true));
     }
     
     // Called once after isFinished returns true

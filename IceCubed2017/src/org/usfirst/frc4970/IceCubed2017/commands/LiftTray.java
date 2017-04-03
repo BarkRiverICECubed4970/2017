@@ -59,7 +59,7 @@ public class LiftTray extends Command {
     		return true;
     	} 
     	// check for auto mode where the target was not found and we're not going to gamble and release the gear anyway
-    	else if ((Robot.inAuto == true) && (Robot.targetFound == false) && (Robot.gambleInAuto == false))
+    	else if ((Robot.targetFound == false) && (Robot.gambleInAuto == false))
     	{
     		return true;
     	}

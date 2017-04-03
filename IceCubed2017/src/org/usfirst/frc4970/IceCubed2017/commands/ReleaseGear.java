@@ -49,7 +49,7 @@ public class ReleaseGear extends TimedCommand {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	// don't release the gear in auto mode if the target hasn't been found... unless we're feeling lucky
-    	if ((Robot.inAuto == false) || (Robot.targetFound == true) || (Robot.gambleInAuto == true))
+    	if ((Robot.gambleInAuto == true) || (Robot.targetFound == true))
     	{
     		Robot.gearMotor.release(Robot.releaseDutyCycle);
     	}
