@@ -97,7 +97,6 @@ public class Robot extends IterativeRobot {
     
     public static boolean targetFound = false;
     public static boolean inAuto = false;
-    public static boolean gambleInAuto = false;
         
     private static NetworkTable table;
     

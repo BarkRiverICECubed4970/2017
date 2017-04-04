@@ -78,7 +78,7 @@ public class OI {
         joystickButton3.whenPressed(new GrabGear());
         
         joystickButton4 = new JoystickButton(joystick1, 3);
-        joystickButton4.whenPressed(new ReleaseGear(Robot.releaseGearTimeout));
+        joystickButton4.whenPressed(new ReleaseGear(Robot.releaseGearTimeout, true));
 
         joystickButton5 = new JoystickButton(joystick1, 6);
         joystickButton5.whileHeld(new ClimbRope());
@@ -94,7 +94,7 @@ public class OI {
         SmartDashboard.putData("SideTimedDrive", new TimedDrive(false));
         SmartDashboard.putData("DriveTowardTower", new DriveTowardTower());
         SmartDashboard.putData("GrabGear", new GrabGear());
-        SmartDashboard.putData("ReleaseGear", new ReleaseGear(Robot.releaseGearTimeout));
+        SmartDashboard.putData("ReleaseGear", new ReleaseGear(Robot.releaseGearTimeout, true));
         SmartDashboard.putData("LiftTray", new LiftTray(false));
         SmartDashboard.putData("LowerTray", new LowerTray(Robot.lowerTrayTimeout));
         SmartDashboard.putData("CalibrateGyro", new CalibrateGyro());

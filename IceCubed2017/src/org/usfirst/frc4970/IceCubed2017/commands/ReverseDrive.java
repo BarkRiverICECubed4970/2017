@@ -22,10 +22,13 @@ import org.usfirst.frc4970.IceCubed2017.subsystems.DriveTrain;
  */
 public class ReverseDrive extends Command {
 
-    public ReverseDrive() {
+	private boolean gamble;
+	
+    public ReverseDrive(boolean gamble) {
 
         requires(Robot.driveTrain);
 
+        this.gamble = gamble;
     }
 
     // Called just before this Command runs the first time
@@ -38,9 +41,9 @@ public class ReverseDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	// don't reverse if we're in auto mode and the target hasn't been found and we're not going to gamble
+    	// don't reverse if the target hasn't been found and we're not going to gamble
     	// and release the gear anyway
-    	if ((Robot.targetFound == true) || (Robot.gambleInAuto == true))
+    	if ((Robot.targetFound == true) || (gamble == true))
     	{
     		Robot.driveTrain.controlLoop(DriveTrain.REVERSE_DRIVE);
     	}
