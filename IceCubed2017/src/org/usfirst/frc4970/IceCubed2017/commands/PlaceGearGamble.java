@@ -17,20 +17,13 @@ import org.usfirst.frc4970.IceCubed2017.Robot;
 /**
  *
  */
-public class PlaceGear extends CommandGroup {
-    public PlaceGear(double turnDegrees) {
+public class PlaceGearGamble extends CommandGroup {
+    public PlaceGearGamble() {
     	
     	addParallel(new HoldGear(Robot.grabDutyCycle));
-    	if (turnDegrees != 0.0)
-    	{
-    		// not in center position, use the longer timed drive
-        	addSequential(new TimedDrive(false));
-    		addSequential(new TurnDegrees(turnDegrees));
-    	} else
-    	{
-    		// in center position, use the shorter timed drive
-        	addSequential(new TimedDrive(true));    		
-    	}
+
+    	// in center position, use the shorter timed drive
+       	addSequential(new TimedDrive(true));    		
     	
     	// attempt to find the target and set a gyro heading
     	addSequential(new DriveTowardTower());
@@ -38,8 +31,8 @@ public class PlaceGear extends CommandGroup {
    		// if no target is found, then drive straight
    		addSequential(new TimedDriveAuto(false));   		
     	
-    	addSequential(new ReleaseGear(0.5, false));
-   		addSequential(new LiftTray(false));
-   		addSequential(new ReverseDrive(false));
+    	addSequential(new ReleaseGear(0.5, true));
+   		addSequential(new LiftTray(true));
+   		addSequential(new ReverseDrive(true));
     }
 }

@@ -27,6 +27,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.opencv.core.Mat;
 
 import org.usfirst.frc4970.IceCubed2017.commands.PlaceGear;
+import org.usfirst.frc4970.IceCubed2017.commands.PlaceGearGamble;
 import org.usfirst.frc4970.IceCubed2017.commands.TimedDrive;
 import org.usfirst.frc4970.IceCubed2017.subsystems.*;
 
@@ -56,7 +57,7 @@ public class Robot extends IterativeRobot {
 
     public static double centerTimedDriveTimeout = 0.5;
     public static double sideTimedDriveTimeout = 1.7;
-    public static double towerDriveTimeout = 3.5;
+    public static double towerDriveTimeout = 3.0;
     public static double turnDegreesTimeout = 3.0;
     public static double reverseDriveTimeout = 2.0;
     public static double reverseDriveDutyCycle = 0.3;
@@ -127,10 +128,10 @@ public class Robot extends IterativeRobot {
         // instantiate the command used for the autonomous period
         autoChooser = new SendableChooser<Command>();
         autoChooser.addDefault("Timed Drive", new TimedDrive(false));
-        autoChooser.addObject("Place Gear Left", new PlaceGear(60.0, false));
-        autoChooser.addObject("Place Gear Center Feeling Lucky", new PlaceGear(0.0, true));
-        autoChooser.addObject("Place Gear Center Safe", new PlaceGear(0.0, false));
-        autoChooser.addObject("Place Gear Right", new PlaceGear(-60.0, false));
+        autoChooser.addObject("Place Gear Left", new PlaceGear(60.0));
+        autoChooser.addObject("Place Gear Center Feeling Lucky", new PlaceGearGamble());
+        autoChooser.addObject("Place Gear Center Safe", new PlaceGear(0.0));
+        autoChooser.addObject("Place Gear Right", new PlaceGear(-60.0));
         autoChooser.addObject("Do Nothing", null);
         SmartDashboard.putData("Autonomous chooser", autoChooser);
 
