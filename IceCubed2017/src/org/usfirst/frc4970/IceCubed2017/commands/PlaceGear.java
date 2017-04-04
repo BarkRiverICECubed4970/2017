@@ -21,15 +21,18 @@ public class PlaceGear extends CommandGroup {
     public PlaceGear(double turnDegrees) {
     	
     	addParallel(new HoldGear(Robot.grabDutyCycle));
-    	if (turnDegrees != 0.0)
+    	if (turnDegrees == 0.0)
     	{
-    		// not in center position, use the longer timed drive
-        	addSequential(new TimedDrive(false));
+        	addSequential(new TimedDrive(Robot.CENTER));    		
+    	}
+    	else if (turnDegrees > 0.0)
+    	{    		
+        	addSequential(new TimedDrive(Robot.LEFT));
     		addSequential(new TurnDegrees(turnDegrees));
     	} else
-    	{
-    		// in center position, use the shorter timed drive
-        	addSequential(new TimedDrive(true));    		
+    	{    		
+        	addSequential(new TimedDrive(Robot.RIGHT));
+    		addSequential(new TurnDegrees(turnDegrees));
     	}
     	
     	// attempt to find the target and set a gyro heading
@@ -39,7 +42,7 @@ public class PlaceGear extends CommandGroup {
    		addSequential(new TimedDriveAuto(false));   		
     	
     	addSequential(new ReleaseGear(0.5, false));
-   		addSequential(new LiftTray(false));
+   		addSequential(new LiftTray(true, false));
    		addSequential(new ReverseDrive(false));
     }
 }

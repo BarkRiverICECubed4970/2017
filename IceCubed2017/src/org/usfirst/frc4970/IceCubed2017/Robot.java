@@ -55,8 +55,13 @@ public class Robot extends IterativeRobot {
     public static final int CLIMBCAM = 1;
     public static int cameraView = GEARCAM;
 
+    public static final int CENTER = 0;
+    public static final int LEFT = 1;
+    public static final int RIGHT = 2;
+
     public static double centerTimedDriveTimeout = 0.5;
-    public static double sideTimedDriveTimeout = 1.7;
+    public static double leftSideTimedDriveTimeout = 1.8;
+    public static double rightSideTimedDriveTimeout = 1.9;
     public static double towerDriveTimeout = 3.0;
     public static double turnDegreesTimeout = 3.0;
     public static double reverseDriveTimeout = 2.0;
@@ -127,7 +132,7 @@ public class Robot extends IterativeRobot {
 
         // instantiate the command used for the autonomous period
         autoChooser = new SendableChooser<Command>();
-        autoChooser.addDefault("Timed Drive", new TimedDrive(false));
+        autoChooser.addDefault("Timed Drive", new TimedDrive(RIGHT));
         autoChooser.addObject("Place Gear Left", new PlaceGear(60.0));
         autoChooser.addObject("Place Gear Center Feeling Lucky", new PlaceGearGamble());
         autoChooser.addObject("Place Gear Center Safe", new PlaceGear(0.0));
@@ -150,7 +155,8 @@ public class Robot extends IterativeRobot {
     	SmartDashboard.putNumber("Gyro PID Tolerance", gyroPidTolerance);
     	SmartDashboard.putNumber("Gyro PID Max Setpoint", gyroPidMaxSetpoint);
     	SmartDashboard.putNumber("Center Timed Drive Timeout", centerTimedDriveTimeout);
-    	SmartDashboard.putNumber("Side Timed Drive Timeout", sideTimedDriveTimeout);
+    	SmartDashboard.putNumber("Left Side Timed Drive Timeout", leftSideTimedDriveTimeout);
+    	SmartDashboard.putNumber("Right Side Timed Drive Timeout", rightSideTimedDriveTimeout);
     	SmartDashboard.putNumber("Tower Drive Timeout", towerDriveTimeout);
     	SmartDashboard.putNumber("Turn Degrees Timeout", turnDegreesTimeout);
     	SmartDashboard.putNumber("Reverse Drive Timeout", reverseDriveTimeout);

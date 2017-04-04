@@ -23,7 +23,7 @@ public class PlaceGearGamble extends CommandGroup {
     	addParallel(new HoldGear(Robot.grabDutyCycle));
 
     	// in center position, use the shorter timed drive
-       	addSequential(new TimedDrive(true));    		
+       	addSequential(new TimedDrive(Robot.CENTER));    		
     	
     	// attempt to find the target and set a gyro heading
     	addSequential(new DriveTowardTower());
@@ -32,7 +32,7 @@ public class PlaceGearGamble extends CommandGroup {
    		addSequential(new TimedDriveAuto(false));   		
     	
     	addSequential(new ReleaseGear(0.5, true));
-   		addSequential(new LiftTray(true));
+   		addSequential(new LiftTray(true, true));
    		addSequential(new ReverseDrive(true));
     }
 }

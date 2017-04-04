@@ -72,7 +72,7 @@ public class OI {
         joystickButton1.whenPressed(new LowerTray(Robot.lowerTrayTimeout));
         
         joystickButton2 = new JoystickButton(joystick1, 4);
-        joystickButton2.whenPressed(new LiftTray(false));
+        joystickButton2.whenPressed(new LiftTray(false, false));
 
         joystickButton3 = new JoystickButton(joystick1, 1);
         joystickButton3.whenPressed(new GrabGear());
@@ -90,12 +90,13 @@ public class OI {
         joystickButton7.whenPressed(new ToggleCamera());
         
         // SmartDashboard Buttons
-        SmartDashboard.putData("CenterTimedDrive", new TimedDrive(true));
-        SmartDashboard.putData("SideTimedDrive", new TimedDrive(false));
+        SmartDashboard.putData("CenterTimedDrive", new TimedDrive(Robot.CENTER));
+        SmartDashboard.putData("LeftSideTimedDrive", new TimedDrive(Robot.LEFT));
+        SmartDashboard.putData("RightSideTimedDrive", new TimedDrive(Robot.RIGHT));
         SmartDashboard.putData("DriveTowardTower", new DriveTowardTower());
         SmartDashboard.putData("GrabGear", new GrabGear());
         SmartDashboard.putData("ReleaseGear", new ReleaseGear(Robot.releaseGearTimeout, true));
-        SmartDashboard.putData("LiftTray", new LiftTray(false));
+        SmartDashboard.putData("LiftTray", new LiftTray(false,false));
         SmartDashboard.putData("LowerTray", new LowerTray(Robot.lowerTrayTimeout));
         SmartDashboard.putData("CalibrateGyro", new CalibrateGyro());
         SmartDashboard.putData("TurnDegrees", new TurnDegrees(SmartDashboard.getNumber("Turn Degrees", Robot.turnDegrees)));

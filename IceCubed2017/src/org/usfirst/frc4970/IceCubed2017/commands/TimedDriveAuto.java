@@ -40,7 +40,7 @@ public class TimedDriveAuto extends Command {
            	timeout = SmartDashboard.getNumber("Center Timed Drive Timeout", Robot.centerTimedDriveTimeout);    		    			
     	} else
     	{
-        	timeout = SmartDashboard.getNumber("Side Timed Drive Timeout", Robot.sideTimedDriveTimeout);    		    		
+        	timeout = SmartDashboard.getNumber("Side Timed Drive Timeout", Robot.rightSideTimedDriveTimeout);    		    		
     	}
     	setTimeout(timeout);
     	Robot.driveTrain.resetGyro();
