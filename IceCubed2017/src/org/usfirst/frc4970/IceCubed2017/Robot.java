@@ -28,6 +28,7 @@ import org.opencv.core.Mat;
 
 import org.usfirst.frc4970.IceCubed2017.commands.PlaceGear;
 import org.usfirst.frc4970.IceCubed2017.commands.PlaceGearGamble;
+import org.usfirst.frc4970.IceCubed2017.commands.SidePositionAdvance;
 import org.usfirst.frc4970.IceCubed2017.commands.TimedDrive;
 import org.usfirst.frc4970.IceCubed2017.subsystems.*;
 
@@ -60,13 +61,13 @@ public class Robot extends IterativeRobot {
     public static final int RIGHT = 2;
 
     public static double centerTimedDriveTimeout = 0.5;
-    public static double leftSideTimedDriveTimeout = 1.8;
-    public static double rightSideTimedDriveTimeout = 1.9;
+    public static double leftSideTimedDriveTimeout = 1.6;
+    public static double rightSideTimedDriveTimeout = 1.7;
     public static double towerDriveTimeout = 3.0;
     public static double turnDegreesTimeout = 3.0;
     public static double reverseDriveTimeout = 2.0;
     public static double reverseDriveDutyCycle = 0.3;
-    public static double releaseGearTimeout = 3.0;
+    public static double releaseGearTimeout = 0.9;
     public static double lowerTrayTimeout = 4.0;
     public static double grabDutyCycle = 0.3;
     public static double grabMaxDutyCycle = 0.6;
@@ -134,9 +135,11 @@ public class Robot extends IterativeRobot {
         autoChooser = new SendableChooser<Command>();
         autoChooser.addDefault("Timed Drive", new TimedDrive(RIGHT));
         autoChooser.addObject("Place Gear Left", new PlaceGear(60.0));
+        autoChooser.addObject("Place Gear Left Advance", new SidePositionAdvance(60.0));
         autoChooser.addObject("Place Gear Center Feeling Lucky", new PlaceGearGamble());
         autoChooser.addObject("Place Gear Center Safe", new PlaceGear(0.0));
         autoChooser.addObject("Place Gear Right", new PlaceGear(-60.0));
+        autoChooser.addObject("Place Gear Right Advance", new SidePositionAdvance(-60.0));
         autoChooser.addObject("Do Nothing", null);
         SmartDashboard.putData("Autonomous chooser", autoChooser);
 
